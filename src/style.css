@@ -18,6 +18,26 @@ body {
     margin: 0 auto;
 }
 
+.btn {
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 16px;
+
+  padding: 10px 20px;
+  border: 2px solid white;
+
+  transition: opacity 0.2s;
+}
+
+.btn:hover{
+  opacity: 0.8;
+}
+
+.btn:active {
+  opacity: 0.6;
+}
+
 
 /*! HEADER  */
 
@@ -118,4 +138,158 @@ body {
 
 .search__icon:active {
   fill: #01A7A1;
+}
+
+
+
+/*! MAIN */
+
+
+.main {
+  display: grid;
+  
+  grid-template-columns: 2fr 1fr 1.5fr 1.5fr;
+  grid-template-rows: 3fr 1fr 3fr;
+  grid-template-areas: "slider-arrows healthy thirsty thirsty"
+                        "slider-arrows healthy slider-dots orange"
+                        "freshy healthy slider-dots orange";
+}
+
+/*! SLIDER-ARROWS */
+
+
+.slider-arrows {
+  grid-area: slider-arrows;
+  position: relative;
+}
+
+.slider-arrows__items-wrapper {
+  width: 100%;
+  height: 100%;
+
+  filter: brightness(80%);
+
+  display: flex;
+
+  object-fit: cover;
+}
+
+.slider-arrows__nav {
+  position: absolute;
+  left: 0;
+  top: 50%;
+
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  transform: translateY(-50%); /*Относительно своей высоту возвращаем на 50% то есть на 25px т.к. всего 50*/
+}
+
+.slider-arrows__arrow {
+  color: white;
+  font-size: 22px;
+  border: 2px solid white;
+  border-radius: 50%;
+
+  width: 50px;
+  height: 50px;
+
+  transition: opacity 0.2s;
+}
+
+.slider-arrows__arrow:hover{
+  opacity: 0.8;
+}
+
+.slider-arrows__arrow:active {
+  opacity: 0.6;
+}
+
+
+/*! Slider-dots */
+
+
+.slider-dots {
+  grid-area: slider-dots;
+  position: relative;
+}
+
+
+.slider-dots__items-wrapper {
+  width: 100%;
+  height: 100%;
+
+  filter: brightness(80%);
+
+  display: flex;
+
+  object-fit: cover;
+}
+
+.slider-dots__item {
+
+}
+
+.slider-dots__btn-wrapper {
+  position: absolute;
+  left: 0;
+  top: 50%;
+
+  transform: translateY(-50%);
+  
+  width: 100%;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.slider-dots__btn {
+  
+}
+
+.slider-dots__nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  gap: 8px;
+
+  position: absolute;
+  left: 0;
+  bottom: 45px;
+}
+
+.slider-dots__nav-item {
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+
+  transition: opacity 0.2s;
+}
+
+.slider-dots__nav-item:hover{
+  opacity: 0.8;
+}
+
+.slider-dots__nav-item:active{
+  opacity: 0.6;
+}
+
+.slider-dots__nav-item--active {
+  background-color: transparent;
+  border: 1px solid white;
+  cursor:default;
+}
+
+.slider-dots__nav-item--active:hover {
+  opacity: 1;
+}
+
+.slider-dots__nav-item--active:active {
+  opacity: 1;
 }
