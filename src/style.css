@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;900&family=PT+Sans&family=Secular+One&display=swap');
+/* 
+font-family: "Fira Sans", serif; 300, 400, 900 для заголовков
+font-family: "Secular One", serif; 400 лого
+font-family: "PT Sans", serif; 400 тексты
+
+  */
+
+body {
+    font-family: "Secular One", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    z-index: 0;
+}
+
+.container {
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+
+/*! HEADER  */
+
+.header {
+  
+  display: grid;
+  grid-template-rows: max-content;
+  grid-template-columns: 1fr 1fr 100px;
+  grid-template-areas: "logo nav search"; /* даем каждой ячейке имя*/
+
+  align-items: center;
+  justify-items: start;
+
+  padding: 15px 0;
+
+  text-transform: uppercase;
+
+  /* !grid-template: "logo nav search" max-content / 1fr 1fr 100px; Можно переписать в одну строчку */
+
+  overflow: hidden;
+}
+
+
+
+.logo {
+  grid-area: logo;
+
+  font-family: "Secular One", serif;
+  font-weight: 400;
+  color: #FF4747;
+  font-size: 24px;
+  width: 150px;
+  line-height: 1;
+
+  justify-self: end;
+}
+
+.header__nav {
+  grid-area: nav;
+}
+
+.header__nav ul {
+  display: flex;
+  gap: 30px;
+}
+
+
+.header__nav a {
+  padding: 15px; /*Тепеь радиус нажатия ссыылок больше*/
+
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s;
+}
+
+.header__nav a:hover {
+  color: #01BCB5;
+
+}
+
+.header__nav a:active {
+  color: #01A7A1;
+}
+
+.header__nav a::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color:#01BCB5;
+
+  position: absolute;
+  left: 15px;
+  bottom: -200%;
+
+  transition: bottom 0.4s, background-color 0.3s;
+}
+
+.header__nav a:hover::after {
+  bottom: -80%;
+}
+
+.header__nav a:active::after {
+  background-color:#01A7A1;
+}
+
+.search {
+  grid-area: search;
+}
+
+.search__icon {
+  transition: fill 0.3s;
+}
+
+.search__icon:hover {
+  fill: #01BCB5;
+}
+
+.search__icon:active {
+  fill: #01A7A1;
+}
