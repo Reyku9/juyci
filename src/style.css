@@ -7,7 +7,7 @@ font-family: "PT Sans", serif; 400 тексты
   */
 
 body {
-    font-family: "Secular One", sans-serif;
+    font-family: "PT Sans", sans-serif;
     font-weight: 400;
     font-size: 14px;
     z-index: 0;
@@ -22,7 +22,7 @@ body {
   color: white;
   text-transform: uppercase;
   letter-spacing: 2px;
-  font-size: 16px;
+  font-size: 13px;
 
   padding: 10px 20px;
   border: 2px solid white;
@@ -42,11 +42,13 @@ body {
 /*! HEADER  */
 
 .header {
-  
+  font-family: "Secular One", sans-serif;
+
+
   display: grid;
   grid-template-rows: max-content;
-  grid-template-columns: 1fr 1fr 100px;
-  grid-template-areas: "logo nav search"; /* даем каждой ячейке имя*/
+  grid-template-columns: 2fr 1.2fr 2.5fr 0.5fr;
+  grid-template-areas: ". logo nav search"; /* даем каждой ячейке имя*/
 
   align-items: center;
   justify-items: start;
@@ -72,7 +74,8 @@ body {
   width: 150px;
   line-height: 1;
 
-  justify-self: end;
+
+  justify-self: start;
 }
 
 .header__nav {
@@ -82,6 +85,10 @@ body {
 .header__nav ul {
   display: flex;
   gap: 30px;
+}
+
+.header__nav a:nth-child(1) {
+  padding-left: 0;
 }
 
 
@@ -110,7 +117,6 @@ body {
   background-color:#01BCB5;
 
   position: absolute;
-  left: 15px;
   bottom: -200%;
 
   transition: bottom 0.4s, background-color 0.3s;
@@ -148,7 +154,7 @@ body {
 .main {
   display: grid;
   
-  grid-template-columns: 2fr 1fr 1.5fr 1.5fr;
+  grid-template-columns: 2fr 1.2fr 1.5fr 1.5fr;
   grid-template-rows: 3fr 1fr 3fr;
   grid-template-areas: "slider-arrows healthy thirsty thirsty"
                         "slider-arrows healthy slider-dots orange"
@@ -228,9 +234,6 @@ body {
   object-fit: cover;
 }
 
-.slider-dots__item {
-
-}
 
 .slider-dots__btn-wrapper {
   position: absolute;
@@ -246,9 +249,6 @@ body {
   align-items: center;
 }
 
-.slider-dots__btn {
-  
-}
 
 .slider-dots__nav {
   display: flex;
@@ -293,3 +293,309 @@ body {
 .slider-dots__nav-item--active:active {
   opacity: 1;
 }
+
+
+/*????FRESHY and common */
+
+
+
+.freshy {
+  grid-area: freshy;
+
+  background-color: #BEE163;
+}
+  
+.common {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  
+  padding: 30px;
+}
+
+.common__wrapper {
+  display: flex;
+  gap: 40px;
+  
+}
+  
+.title {
+  font-family: "Fira Sans", sans-serif;
+
+  font-size: 24px;
+  width: 140px;
+  font-weight: 300; 
+  line-height: 1;
+}
+
+.title span {
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 2px;
+
+  display: block; /*Для применения псевдоэлемента ниже*/
+}
+
+.title span::first-line {
+  font-weight: 900;
+}
+  
+.common__desc {
+  max-width: 60%;
+  hyphens: auto;  /*!Делает автоматический перенос с дефисом*/
+
+  font-family: "PT Sans", serif;
+
+}
+
+
+
+.healthy {
+  grid-area: healthy;
+  background-color: #FF494B;
+  padding-bottom: 60px;
+}
+
+.common--col-rev {
+  align-items: end;
+}
+
+.healthy .common__desc {
+  max-width: 170px;
+}
+
+.healthy .common__wrapper{
+  flex-direction: column-reverse;  
+}
+
+
+
+
+.thirsty {
+  grid-area: thirsty;
+  background-color: #FFBA4A;
+}
+
+
+.thirsty .common__wrapper {
+  flex-direction: row-reverse;
+}
+
+
+
+.common--row-rev .common__desc {
+  text-align: right;
+
+}
+
+.thirsty .common__desc {
+  max-width: 200px;
+}
+
+/*! ORANGE */
+
+
+.orange {
+  grid-area: orange;
+  position: relative;
+}
+
+.orange img {
+  width: 100%;
+  height: 100%;
+  filter: brightness(60%);
+}
+
+.orange__btn-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform:translate(-50%, -50%);
+
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.orange__arrow {
+  position: absolute;
+  bottom: 20px;
+  right: 30px;
+  opacity: 0.8;
+
+  transition: opacity 0.2s;
+}
+
+.orange__arrow:hover {
+  opacity: 0.6;
+}
+
+
+.orange__arrow:active {
+  opacity: 0.5;
+}
+
+
+
+
+
+.wrapper-down {
+  display: grid;
+  /* grid-template-columns: 4.7fr 1.5fr;
+  grid-template-rows: 1fr;
+
+  grid-template-areas: "footer sidebar"; */
+
+  grid-template: "footer sidebar" 1fr / 4.7fr 1.5fr;
+}
+
+/*! FOOTER  */
+
+
+.footer {
+  padding-top: 100px;
+
+  align-items: end;
+
+  align-content: center;  /*content вырванивает ячейки*/
+
+  grid-area: footer;
+  background-color: #2F2F2F;
+
+  display: grid;
+  /* grid-template-columns: 1fr 1fr 1.2fr 1.5fr ;
+  grid-template-rows: max-content 100px;
+  grid-area: ". socials form logo"
+              ". . . copy"; */   
+  grid-template: ". socials form logo" max-content
+                  ". . . copy" 100px / 0.7fr 1.3fr 1.2fr 1.5fr;
+
+  color: white;
+}
+
+.socials {
+  grid-area: socials;
+  display: flex;
+  gap: 10px;
+}
+
+.socials__link {
+  display: flex; 
+  align-items: center;
+  justify-content: center;   /*Идеальный круг и иконки внутри по центру*/
+  
+  border: 1px solid white;
+  border-radius: 50%;
+
+  width: 40px;
+  height: 40px;
+
+  transition: opacity 0.2s;
+}
+
+.socials__link:hover{
+  opacity: 0.8;
+}
+
+.socials__link:active{
+  opacity: 0.6;
+}
+
+.socials__icon {
+  width: 20px;
+  height: 20px;
+}
+
+.form {
+  grid-area: form;
+  text-transform: uppercase;
+}
+
+.form__title {
+  font-size: 18px;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+.form__row {
+  display: flex; /*Чтобы не было отступа между инпутом и кнопкой!!!!*/
+}
+
+.form__input {
+  height: 35px;
+  width: 190px;
+  
+
+  outline: none;
+
+  padding: 0 20px;
+
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.form__input:focus {
+  background-color: rgb(255, 255, 255);
+
+}
+
+.form__submit-btn {
+  background-color: #00C2BA;
+  color: white;
+  height: 35px;
+  padding: 0 20px;
+  text-transform: uppercase;
+
+  transition: background-color 0.2s;
+
+}
+
+.form__submit-btn:hover {
+  background-color: #00eae0;
+}
+
+.form__submit-btn:active {
+  background-color: #00aaa3;
+}
+
+.logo-img {
+  justify-self: center;  /*Задаем конкретно элементу потому что хотим чтобы центрировался только он*/
+}
+
+.footer__logo {
+  grid-area: logo;
+}
+
+.copy {
+  grid-area: copy;
+  color: #6a6a6a;
+
+  align-self: center;
+  justify-self: center;
+}
+
+
+
+/*? SIDEBAR */
+
+
+.sidebar {
+  grid-area: sidebar;
+  background-color: #00C2BA;
+}
+
+
+.btn--rounded {
+  border-radius: 20px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+
+.sidebar p + .btn {
+  margin-top: 20px;
+}
+
